@@ -1,0 +1,6 @@
+---
+  - hosts: localhost
+
+  - include: ansible-playbooks/nginx/nginx.yml
+    vars:
+      delete_default_vhost: false
