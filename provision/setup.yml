@@ -1,6 +1,10 @@
 ---
   - hosts: localhost
 
-  - include: ansible-playbooks/nginx/nginx.yml
-    vars:
-      delete_default_vhost: false
+    tasks:
+      - name: install nginx
+        action: apt name=nginx 
+
+    handlers:
+      - name: restart nginx
+        action: service name=nginx pattern=/etc/init.d/nginx state=restarted enabled=yes 
